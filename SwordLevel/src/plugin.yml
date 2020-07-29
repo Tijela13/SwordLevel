@@ -1,0 +1,72 @@
+name: 'SwordLevel'
+version: 3.0
+description: 'System of level for items and players.'
+
+author: 'tijela'
+
+main: 'br.tijela.swordlevelv3.SwordLevel'
+
+commands:
+
+  swordlevel:
+    description: 'See all commands of SwordLevel.'
+    aliases: ['sword', 'sl']
+    permission: 'swordlevel.help'
+    usage: '/<command>'
+
+  swordlevel view:
+    description: 'See the level and xp of item in hand.'
+    permission: 'swordlevel.view'
+    usage: '/<command>'
+
+  swordlevel bonus:
+    description: 'See the bonus and xp of item in hand.'
+    permission: 'swordlevel.bonus'
+    usage: '/<command>'
+
+  swordlevel toplevelups:
+    description: 'See the 10 players that more leveling.'
+    permission: 'swordlevel.toplevelups'
+    usage: '/<command> [grupo]'
+
+  swordlevel topxpwin:
+    description: 'See the 10 players that more win xp.'
+    permission: 'swordlevel.topxpwin'
+    usage: '/<command> [grupo]'
+
+  swordlevel toplevelmax:
+    description: 'See the 10 players that arrived in highest levels'
+    permission: 'swordlevel.toplevelmax'
+    usage: '/<command> [grupo]'
+
+  swordlevel setlevel:
+    description: 'Define the level in a group for a player'
+    permission: 'swordlevel.admin'
+    # Put yes in 2 argument for force the level.
+    usage: '/<command> <level> [player] [s|y|sim|yes|true|n|nao|not|false]'
+
+  swordlevel addlevel:
+    description: 'Add level in a group for a player.'
+    permission: 'swordlevel.admin'
+    # Put yes in 2 argument for force the level.
+    usage: '/<command> <level> [player] [s|y|sim|yes|true|n|nao|not|false]'
+
+  swordlevel setxp:
+    description: 'Define the xp in a group for a player.'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <xp> [player]'
+
+  swordlevel addxp:
+    description: 'Add xp in a group for a player.'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <xp> [player]'
+
+  swordlevel viewplayer:
+    description: 'See informations of a Player, Group, Item in hand, Level, Xp and Bonus.'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <player>'
+
+  swordlevel reload:
+    description: 'reload the plugin'
+    permission: 'swordlevel.admin'
+    usage: '/<command>'

@@ -1,0 +1,453 @@
+####################################################
+####################SwordLevel######################
+####################by Tijela#####################
+####################################################
+
+# OBS: Todas as partes marcadas como Opcional podem ser removidas da config.
+
+Plugin:
+  # Habilitar UUID.
+  UUID: true
+  # Prefix das mensagens.
+  Prefix:
+    PrefixConsole: '§9[SwordLevel]§2 '
+    PrefixCommands: '§9[SwordLevel]§2 '
+    PrefixErrors: '§9[SwordError]§2 '
+  # Debug
+  # 1, 2, 3, 4
+  Debug: 1
+  Messages: 'pt-br.yml'
+
+# Configurações dos Storages.
+Sql:
+  # Stores:
+  #  - 'SqlLite'.
+  #  - 'MySql'.
+  #  - 'PostgreSQL'.
+  StoreMode: 'SqlLite'
+  # Configurações do MySql.
+  # Opcional.
+  MySql:
+    Host: 'localhost'
+    Port: 3306
+    User: 'root'
+    Password: ''
+    Database: 'MinecraftServer'
+  # Configurações do PostgreSQL.
+  # Opcional.
+  PostgreSQL:
+    Host: 'localhost'
+    Port: 3306
+    User: 'root'
+    Password: ''
+    Database: 'MinecraftServer'
+  # Configurações do Sqlite.
+  # Opcional.
+  Sqlite:
+    Filename: 'SwordLevel.db'
+  # Nome da tabela de ranks.
+  TableRanks: 'SwordLevelRanks'
+  # Nome da tabela de level, caso o level for por player.
+  TableLevel: 'SwordLevelLevel'
+
+# Grupo padrão.
+# Esse grupo é usado caso nenhum dos grupos tiver um condition valido para o player.
+# Opcional.
+DefaultGroup:
+  Permission: 'swordlevel.defaultgroup'
+  Group: 'Swords'
+
+Grupos:
+  # Grupo "Swords", voce pode criar quantos grupos quiser.
+  Swords:
+    # Ativar o leveling no criativo.
+    # Opcional, Default: false.
+    AllowCreative: false
+
+    # Condições para o grupo ser ativado.
+    Conditions:
+      # Mundos permitidos.
+      # Será ativado somente caso o player estiver em um mundo permitido.
+      # Opcional.
+      WorldsWhite:
+        - 'world'
+        - 'world_the_end'
+        - 'world_nether'
+      # Mundos não permitidos.
+      # Será ativado somente caso o player não estiver em um mundo proibido.
+      # OBS: Use o WorldsWhite ou WorldsBlack, não use os dois juntos.
+      # Opcional.
+      WorldsBlack:
+        - 'world'
+        - 'world_the_end'
+        - 'world_nether'
+      # Materiais permitidos.
+      # Será ativado caso o item do player for algum desses materiais.
+      # Docs: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+      # Opcional.
+      Material:
+        - 'WOOD_SWORD'
+        - 'STONE_SWORD'
+        - 'IRON_SWORD'
+        - 'GOLD_SWORD'
+        - 'DIAMOND_SWORD'
+      # Nome de itens permitidos.
+      # Será ativado se o item do player for algum desses nomes.
+      # Opcional.
+      Name:
+        - 'SwordLevel Diamond'
+        - 'SwordLevel Gold'
+        - 'SwordLevel Iron'
+        - 'SwordLevel Stone'
+        - 'SwordLevel Wood'
+      # Partes dos nomes de itens permitidos.
+      # Será ativado se o nome do item que o player estiver tiver algum desses nomes.
+      # Opcional.
+      NameContains:
+        - 'SwordLevel'
+        - '[SL]'
+        - '[S]'
+      # Linhas de lores permitidas.
+      # Será ativado se alguma linha da lore do item que o player estiver for alguma dessas linhas.
+      # Opcional.
+      LoreLine:
+        - 'Esse é um item SwordLevel'
+      # Partes de lores permitidas.
+      # Será ativado se alguma linha da lore do item que o player estiver tiver algum desse nomes.
+      # Opcional.
+      LoreContains:
+        - 'SwordLevel'
+
+    # Configurações do armazenamento de level.
+    Store:
+      # Pode ser por item ou por player.
+      # - 'Item'
+      # - 'Player'
+      Mode: 'Item'
+
+      # Caso o mode for por Item, essas são a configurações da lore.
+      # Obrigatório se o mode por por item.
+      LoreItem:
+        Level:
+          Prefix: '§9Level: §2'
+          Sufix: ''
+        Xp:
+          Prefix: '§5Xp: §9'
+          Sufix: ''
+
+    # Mensagens.
+    # OBS: Para desativar uma mensagens basta colocar um texto vazio.
+    # OBS²: Aceita acentos(UTF-8).
+    Messages:
+      Prefix: '§9[SwordLevel]§2'
+
+      LevelUp: 'Seu item upou do level {0} para o level {1}'
+      XpReward: 'Seu item ganhou {0} de XP falta {1} para passar de level.'
+
+      ViewLevel: 'Você ta no level {0} com {1}/{2} de experiencia'
+
+    # Sistema de ranks.
+    # Opcional.
+    Ranks:
+      # Quantidade de levels upados.
+      LevelsUps: true
+      # Quantidade de xp ganho.
+      XpGained: true
+      # O maior level updado.
+      LevelMax: true
+
+    # Para limitar a experiencia ganha.
+    # Opcional.
+    AntiTheft:
+      # Caso o player tiver essa permissao ele não verificara o player.
+      PermissionAllow: 'swordlevel.swordsantitheft'
+
+      # Opcional.
+      Player:
+        # Limite de XP ganho por matar o mesmo player.
+        SamePlayer:
+          Count: 1 # Quantidade permitida.
+          Time: 60 # Intervalo de tempo.
+          # Nas configurações acima o limite vai ser matar o mesmo player em um intervalo de 60 segundos.
+        AnyPlayer:
+          Count: 2
+          Time: 10
+          # Nas configurações acima o limite vai ser matar 2 player em um intervalo de 10 segundos.
+
+      # Opcional.
+      # Limite de XP ganho por matar mobs.
+      Mob:
+        Count: 1
+        Time: 2
+        # Limite de XP ganho por quebrar blocos.
+
+      # Opcional.
+      Block:
+        Count: 4
+        Time: 5
+
+    Permissions:
+      # Sub-grupo por permissão, todos os sub-grupos vão compartilhar o mesmo level e xp,
+      # mas terão opções diferentes.
+      # OBS: Você pode criar quantos sub-grupos você quiser.
+      Players:
+
+        Permission: 'swordlevel.swords'
+
+        # Configurações do xp adiquirido e level.
+        Leveling:
+          # Xp ganho por matar.
+          Kills:
+            # Quantidade de XP ganha por matar um mob.
+            # Opcional.
+            Mobs: 1
+            # Quantidade de XP ganha por matar um determinado mob.
+            # Caso algum mob nao estiver nessa lista o XP ganho vai ser o XP indicado acima.
+            # OBS: Sempre coloque em letras maiusculas.
+            # Docs: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+            # Opcional.
+            CustomMobs:
+              ENDER_DRAGON: 20
+            # Quantidade de XP ganha por matar um player.
+            # Opcional.
+            Players: 2
+            # Quantidade de XP ganha por matar um determinado player.
+            # OBS: pode ser o Nick ou UUID.
+            # Opcional.
+            CustomPlayers:
+              Neitan96: 1000
+
+          # Quantidade de XP ganha por quebrar um bloco.
+          # OBS: Sempre coloque em letras maiusculas.
+          # Docs: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+          # Opcional.
+          Blocks:
+            GOLD_ORE: 1
+            DIAMOND_ORE: 2
+
+          # Aqui é quantidade de XP necessario para upar,
+          # Nesse exemplo o xp necessario para upar vai ser o
+          # Level do item ou player multiplicado por 0,35.
+          # Exemplo:
+          # {level}*0.5
+          # Caso o level for 10 a quantidade de xp necessario vai ser 5.
+          LevelUp: '{level}*0.5'
+
+          # Level maximo.
+          # Opcional.
+          LevelMax: 100
+
+        # Bonus ganho pelo level
+        Bonus:
+
+          # Bonus de dano.
+          Damage:
+            # Se deseja ignorar a armadura do player que recebeu o dano.
+            # Opcional, Default: true.
+            IgnoreAmor: false
+            # Se deseja que o SwordLevel não interfira na durabilidade da armadura de quem recebe o dano.
+            # Opcional, Default: false.
+            PreventDurability: true
+            # Dano minimo.
+            # Opcional, Default: 0.
+            DamageMin: 2
+            # Dano maximo.
+            # Opcional, Default: 0.
+            DamageMax: 2
+            # Caso true irá multiplicar o dano minimo e maximo pelo level.
+            # Opcional, Default: false.
+            MultiplierDamage: true
+
+          # Dano em area.
+          # Opcional.
+          DamageArea:
+            # A provalidade de sair um dano em area.
+            # Opcional, Default: 100.
+            Provability: 25
+            # Caso true irá multiplicar a provabilidade pelo level.
+            # Opcional, Default: false.
+            MultiplierProvability: false
+            # A distancia do dano em area.
+            # Opcional, Default: 3.
+            Distance: 3
+            # Dano minimo.
+            # Opcional, Default: 0.
+            DamageMin: 1
+            # Dano maximo.
+            # Opcional, Default: 0.
+            DamageMax: 2
+            # Caso true o dano vai multiplicado pelo level.
+            # Opcional, Default: false.
+            MultiplierDamage: false
+            # Level minimo para poder usar o dano em area.
+            # Opcional, Default: 1.
+            LevelAllow: 20
+
+          # Efeitos de porção em quem receber o dano.
+          # Opcional.
+          PotionEffects:
+            # Nome do efeito.
+            # Docs: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+            HUNGER:
+              # Level minimo para ser ativado.
+              # Opcional, Default: 1.
+              LevelAllow: 20
+              # Duração do efeito.
+              # Opcional, Default: 3.
+              SecondsEffect: 2
+              # Level do efeito.
+              # Opcional, Default: 1.
+              Amplifier: 1
+              # Provabilidade de ativar o efeito.
+              # Opcional, Default: 100.
+              Provability: 50
+              # Caso true a provabilidade será multiplicada pelo level.
+              # Opcional, Default: false.
+              MultiplierProvability: true
+
+            CONFUSION:
+              LevelAllow: 50
+              SecondsEffect: 5
+              Provability: 20
+              MultiplierProvability: false
+
+          # Trovão.
+          # Opcional.
+          Thunder:
+            # Provabilidade de ser ativado.
+            # Opcional, Default: 100.
+            Provability: 20
+            # Caso true a provabilidade vai ser multiplicada pelo level.
+            # Opcional, Default: false.
+            MultiplierProvability: false
+            # Level minimo para ser ativado.
+            # Opcional, Default: 1.
+            LevelAllow: 10
+
+          # Chance de drop itens extras ao quebrar blocos.
+          # Opcional.
+          DropBlock:
+            # Provabilidade de dropar itens extras.
+            # Opcional, Default: 100.
+            Provability: 50
+            # Caso true a provabilidade vai ser multiplicada pelo level.
+            # Opcional, Default: false.
+            MultiplierProvability: false
+            # Multiplicador dos drops,
+            # Ex: Se colocar 2 ira duplicar os drops.
+            # Opcional, Default: 2.
+            Multiplier: 2
+            # Caso true o multiplicador será multicado pelo level.
+            # Opcional, Default: false.
+            MultiplierMultiplier: false
+            # O Level em que é ativado a habilidade.
+            # Opcional, Default: 1.
+            LevelAllow: 10
+
+          # Chance de drop itens extras ao matar mobs.
+          # Opcional.
+          DropMob:
+            # Provabilidade de multiplicar.
+            # Opcional, Default: 100.
+            Provability: 50
+            # Caso true a provabilidade será multiplicada pelo level.
+            # Opcional, Default: false.
+            MultiplierProvability: false
+            # O multiplicador.
+            # Exemplo: 2 irá duplicar, 3 irá triplicar.
+            # Opcional, Default: 2.
+            Multiplier: 2
+            # Caso true irá multiplicar o mutiplicador pelo level.
+            # Opcional, Default: false.
+            MultiplierMulplier: false
+            # Level minimo para ativar.
+            # Opcional, Default: -1.
+            LevelAllow: 10
+
+        # Premios para os players que chegar em um certo level.
+        # Opcional.
+        Rewards:
+          # Level.
+          50:
+            # Premios de comandos.
+            # Use {1} para obter o UUID do player.
+            - 'say o player {0} chegou no level 50'
+          100:
+            - 'give {0} DIAMOND 5'
+
+      Vips:
+
+        Permission: 'swordlevel.swordsvip'
+
+        Leveling:
+          Kills:
+            Mobs: 2
+            CustomMobs:
+              ENDER_DRAGON: 50
+
+            Players: 4
+            CustomPlayers:
+              Neitan96: 5000
+
+          Blocks:
+            GOLD_ORE: 2
+            DIAMOND_ORE: 4
+
+          LevelUp: '{level}*0.5'
+          LevelMax: 100
+
+        Bonus:
+
+          Damage:
+            DamageMin: 2
+            DamageMax: 2
+            MultiplierDamage: true
+
+          DamageArea:
+            Provability: 40
+            MultiplierProvability: false
+            Distance: 3
+            DamageMin: 2
+            DamageMax: 2
+            MultiplierDamage: false
+            LevelAllow: 15
+
+          PotionEffects:
+            HUNGER:
+              LevelAllow: 15
+              SecondsEffect: 3
+              Provability: 70
+              MultiplierProvability: true
+
+            CONFUSION:
+              LevelAllow: 40
+              SecondsEffect: 7
+              Provability: 25
+              MultiplierProvability: false
+
+          Thunder:
+            Provability: 25
+            MultiplierProvability: false
+            LevelAllow: 5
+
+          DropBlock:
+            Provability: 60
+            MultiplierProvability: false
+            Multiplier: 2
+            MultiplierMultiplier: false
+            LevelAllow: 5
+
+          DropMob:
+            Provability: 70
+            MultiplierProvability: false
+            Multiplier: 2
+            MultiplierMulplier: false
+            LevelAllow: 5
+
+        Rewards:
+          50:
+            - 'say o player {0} chegou no level 50'
+          80:
+            - 'give {0} DIAMOND 5'
+          100:
+            - 'give {0} DIAMOND 15'

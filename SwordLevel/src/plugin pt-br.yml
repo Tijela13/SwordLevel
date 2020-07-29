@@ -1,0 +1,72 @@
+name: 'SwordLevel'
+version: 3.0
+description: 'Sistema de level para itens e players.'
+
+author: 'tijela'
+
+main: 'br.tijela.swordlevelv3.Main'
+
+commands:
+
+  swordlevel:
+    description: 'Ver todos os comandos do SwordLevel'
+    aliases: ['sword', 'sl']
+    permission: 'swordlevel.help'
+    usage: '/<command>'
+
+  swordlevel view:
+    description: 'Ver o level e xp do equivalente ao item na mao.'
+    permission: 'swordlevel.view'
+    usage: '/<command>'
+
+  swordlevel bonus:
+    description: 'Ver os bonus e xp do equivalente ao item na mao.'
+    permission: 'swordlevel.bonus'
+    usage: '/<command>'
+
+  swordlevel toplevelups:
+    description: 'Ver os 10 players que mais upou levels.'
+    permission: 'swordlevel.toplevelups'
+    usage: '/<command> [grupo]'
+
+  swordlevel topxpwin:
+    description: 'Ver os 10 players que mais ganhou xp.'
+    permission: 'swordlevel.topxpwin'
+    usage: '/<command> [grupo]'
+
+  swordlevel toplevelmax:
+    description: 'Ver os 10 players que chegou nos levels mais altos.'
+    permission: 'swordlevel.toplevelmax'
+    usage: '/<command> [grupo]'
+
+  swordlevel setlevel:
+    description: 'Define o level em um grupo para um player'
+    permission: 'swordlevel.admin'
+    # Coloque sim no 3 argumento para força o level.
+    usage: '/<command> <level> [player] [s|y|sim|yes|true|n|nao|not|false]'
+
+  swordlevel addlevel:
+    description: 'Adiciona level em um grupo para um player'
+    permission: 'swordlevel.admin'
+    # Coloque sim no 3 argumento para força o level.
+    usage: '/<command> <level> [player] [s|y|sim|yes|true|n|nao|not|false]'
+
+  swordlevel setxp:
+    description: 'Define o xp em um grupo para um player'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <xp> [player]'
+
+  swordlevel addxp:
+    description: 'Adiciona xp em um grupo para um player'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <xp> [player]'
+
+  swordlevel viewplayer:
+    description: 'Ver informacoes de um player, Grupo, Item na mao, Level, Xp, Bonus'
+    permission: 'swordlevel.admin'
+    usage: '/<command> <player>'
+
+  swordlevel reload:
+    description: 'Recarrega o plugin'
+    permission: 'swordlevel.admin'
+    usage: '/<command>'

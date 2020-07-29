@@ -1,0 +1,57 @@
+Help:
+  Start: '>>> SwordLevel Commands:'
+  End: '-------------------------------------'
+  Format: '{command} - {description}'
+  NoCommand: 'You can''t execute none command.'
+Debug:
+  AntiTheft:
+    CacheClear: 'Cache of AntiTheft cleared.'
+    BlockBlock: '{playerUUID}({playerName}) Don''t passed per AntiTheft when break a block.'
+    BlockMob: '{playerUUID}({playerName}) Don''t passed per AntiTheft when kill a mob.'
+    BlockPlayer: '{playerUUID}({playerName}) Don''t passed per AntiTheft when kill a player.'
+  Database:
+    Opening: 'Connecting to database...'
+    Open: 'Connected to database successfully.'
+    Close: 'Connection with database closed.'
+    Url: 'Url: {url}'
+  Groups:
+    Reading: 'Reading configurations of group: {group}'
+    ReadingSubGroup: 'Reading sub-group: {subgroup}'
+    NoMessages: 'Group don''t have Messages.'
+    NoRanks: 'Group don''t have Ranks.'
+    NoAntiTheft: 'Group don''t have AntiTheft.'
+    NoRewards: 'Group don''t have Rewards.'
+Warings:
+  NoConsole: 'Action allowed only for players.'
+  NoPermission: 'No permission.'
+  NotFoundPlayer: 'Player don''t found.'
+  NumInvalid: 'Invalid number.'
+  Groups:
+    ItemInvalid: 'Item in hand of player is invalid.'
+    NoView: 'Invalid item for see attributes'
+    NoConditions: 'Invalid group, Conditions don''t found.'
+    NoStore: 'Invalid group, Store don''t found.'
+    NoLeveling: 'Invalid group, Leveling don''t found.'
+    NoBonus: 'Invalid group, Bonus don''t found.'
+    NoPermissions: 'Invalid group, Permissions don''t found.'
+Bonus:
+  Start: 'Bonus:'
+  Damage: 'Damage: {damageMin}-{damageMax}.'
+  DamageAreaNo: 'Damage in area activated in level {levelAllow}.'
+  DamageArea: 'Damage in area: {damageMin}-{damageMax}, {distance} distance blocks, {provability}% of chance.'
+  DropBlockNo: 'Drops of block activated in level: {levelAllow}.'
+  DropBlock: 'Drops of block: {provability}% of chance to multiply by {multiplier}.'
+  DropMobNo: 'Drops of mob activated in level: {levelAllow}.'
+  DropMob: 'Drops of mob: {provability}% of chance of multiply by {multiplier}.'
+  Effect: '  {name}-{level} {seconds}s {provability}% of chance.'
+  PottionEffects: 'Effects:'
+  ThunderNo: 'Thunder: Active in level {levelAllow}.'
+  Thunder: 'Thunder: {provability}% of chance.'
+Rank:
+  NoScore: 'None score registered.'
+  Start: 'Players top:'
+  Format: '{n} - {player} > {score}'
+  End: '---------------------------'
+Groups:
+  LevelUpdate: 'Level changed with sucess.'
+  XpUpdate: 'Xp changed with sucess.'

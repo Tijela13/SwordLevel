@@ -1,0 +1,57 @@
+Help:
+  Start: '>>> SwordLevel Commands:'
+  End: '-------------------------------------'
+  Format: '{command} - {description}'
+  NoCommand: 'Você não pode executar nenhum comando.'
+Debug:
+  AntiTheft:
+    CacheClear: 'Cache do AntiTheft limpo.'
+    BlockBlock: '{playerUUID}({playerName}) Não passou pelo AntiTheft ao quebrar um bloco.'
+    BlockMob: '{playerUUID}({playerName}) Não passou pelo AntiTheft ao matar um mob.'
+    BlockPlayer: '{playerUUID}({playerName}) Não passou pelo AntiTheft ao matar um player.'
+  Database:
+    Opening: 'Conectando ao banco de dados...'
+    Open: 'Conectado ao banco de dados com sucesso.'
+    Close: 'Conecxão com o banco de dados fechada.'
+    Url: 'Url: {url}'
+  Groups:
+    Reading: 'Lendo configurações do grupo: {group}'
+    ReadingSubGroup: 'Lendo sub-grupo: {subgroup}'
+    NoMessages: 'Grupo não tem Messages.'
+    NoRanks: 'Grupo não tem Ranks.'
+    NoAntiTheft: 'Grupo não tem AntiTheft.'
+    NoRewards: 'Grupo não tem Rewards.'
+Warings:
+  NoConsole: 'Ação permitida somente para players.'
+  NoPermission: 'Sem permissão.'
+  NotFoundPlayer: 'Player não encontrado'
+  NumInvalid: 'Numero inválido'
+  Groups:
+    ItemInvalid: 'Item na mão do player inválido.'
+    NoView: 'Item inválido para ver atributos.'
+    NoConditions: 'Grupo inválido, Conditions não encontrado.'
+    NoStore: 'Grupo inválido, Store não encontrado.'
+    NoLeveling: 'Grupo inválido, Leveling não encontrado.'
+    NoBonus: 'Grupo inválido, Bonus não encontrado.'
+    NoPermissions: 'Grupo inválido, Permissions não encontrado.'
+Bonus:
+  Start: 'Bonus:'
+  Damage: 'Dano: {damageMin}-{damageMax}.'
+  DamageAreaNo: 'Dano em area ativado no level {levelAllow}.'
+  DamageArea: 'Dano em area: {damageMin}-{damageMax}, {distance} blocos de distancia, {provability}% de chance.'
+  DropBlockNo: 'Drops de bloco ativado no level: {levelAllow}.'
+  DropBlock: 'Drops de bloco: {provability}% de chance de multiplicar por {multiplier}.'
+  DropMobNo: 'Drops de mob ativado no level: {levelAllow}.'
+  DropMob: 'Drops de mob: {provability}% de chance de multiplicar por {multiplier}.'
+  Effect: '  {name}-{level} {seconds}s {provability}% de chance.'
+  PottionEffects: 'Efeitos:'
+  ThunderNo:  'Trovão: Ativo no level {levelAllow}.'
+  Thunder:  'Trovão: {provability}% de chace.'
+Rank:
+  NoScore: 'Nenhum score registrado.'
+  Start: 'Players top:'
+  Format: '{n} - {player} > {score}'
+  End: '---------------------------'
+Groups:
+  LevelUpdate: 'Level alterado com sucesso'
+  XpUpdate: 'Xp alterado com sucesso'
